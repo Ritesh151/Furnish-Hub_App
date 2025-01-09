@@ -9,8 +9,7 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  int _currentIndex = 0;
-
+  // List of pages you want to display
   final List<Widget> _pages = [
     ProductPage(),
   ];
@@ -22,8 +21,7 @@ class _HomepageState extends State<Homepage> {
         children: [
           InkWell(
             onTap: () {
-              setState(() => _currentIndex = 0);
-              Navigator.pop(context);
+              // Navigator.pop(context);
             },
             child: Image.asset(
               'assets/images/Page1.jpeg',
@@ -38,6 +36,12 @@ class _HomepageState extends State<Homepage> {
               "Welcome to Furnish-Hub!  ",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
+            ),
+          ),
+          // Use PageView to show different pages
+          Expanded(
+            child: PageView(
+              children: _pages,
             ),
           ),
         ],
