@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Pages/HomePage.dart';
-import 'Pages/Product.dart';
+import 'Pages/Product.dart'; 
 import 'Pages/Profile.dart';
 import 'Pages/Menu.dart';
 import 'Pages/Services.dart';
