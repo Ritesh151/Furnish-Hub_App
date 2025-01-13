@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:furnishhub/Pages/Splash_Screen.dart';
 import 'Pages/HomePage.dart';
 import 'Pages/Product.dart';
 import 'Pages/Profile.dart';
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: SplashScreenView(),
     );
   }
 }
@@ -62,59 +63,61 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      drawer: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.70,
-        child: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Text(
-                  'Furnish-Hub',
-                  style: TextStyle(
-                      color: const Color.fromARGB(255, 230, 200, 187),
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold),
+      drawer: Expanded(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.70,
+          child: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  child: Text(
+                    'Furnish-Hub',
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 230, 200, 187),
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text("HomePage"),
-                onTap: () {
-                  setState(() => _currentIndex = 0);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.person),
-                title: Text("Profile"),
-                onTap: () {
-                  setState(() => _currentIndex = 2);
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.production_quantity_limits),
-                title: Text("Product"),
-                onTap: () {
-                  setState(() => _currentIndex = 1);
-                  Navigator.pop(context);
-                },
-              ),
-              SizedBox(height: 330),
-              ElevatedButton(
-                child: Text("Login"),
-                onPressed: () {
-                  setState(() => _currentIndex = 2);
-                  Navigator.pop(context);
-                },
-                onLongPress: () {
-                  setState(() => _currentIndex = 2);
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+                ListTile(
+                  leading: Icon(Icons.home),
+                  title: Text("HomePage"),
+                  onTap: () {
+                    setState(() => _currentIndex = 0);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Profile"),
+                  onTap: () {
+                    setState(() => _currentIndex = 2);
+                    Navigator.pop(context);
+                  },
+                ),
+                ListTile(
+                  leading: Icon(Icons.production_quantity_limits),
+                  title: Text("Product"),
+                  onTap: () {
+                    setState(() => _currentIndex = 1);
+                    Navigator.pop(context);
+                  },
+                ),
+                SizedBox(height: 340),
+                ElevatedButton(
+                  child: Text("Login"),
+                  onPressed: () {
+                    setState(() => _currentIndex = 2);
+                    Navigator.pop(context);
+                  },
+                  onLongPress: () {
+                    setState(() => _currentIndex = 2);
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
